@@ -6,6 +6,7 @@
 }
 
 .app {
+  font-family:Arial, Helvetica, sans-serif;
   background: var(--dark);
   height: 100vh;
   padding: 30px;
@@ -13,9 +14,9 @@
 
 .todo-list {
   margin: auto;
-  background: var(--mid);
+  width: 40%;
+  background: var(--accent);
   border-radius: 10px;
-  max-width: 400px;
   padding: 5px;
 }
 
@@ -26,7 +27,27 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   display: flex;
   font-size: 16px;
+  color: var(--dark);
   justify-content: space-between;
   margin-bottom: 6px;
   padding: 3px 10px;
+}
+
+button {
+  border-radius: 5px;
+  border-style: none;
+  color: var(--light);
+  background-color: var(--accent);
+  font-size: 16px;
+  margin-right: 2px;
+}
+
+input {
+  border-radius: 5px;
+  border-style: none;
+  padding: 3px 10px;
+  color: var(--mid);
+  background-color: var(--light);
+  font-size: 16px;
+  width: 50%;
 }
