@@ -4,7 +4,7 @@ import './App.css';
 function Todo({ todo, index, completeTodo, removeTodo }) {
 
   var completeButton = "Complete"
-  todo.isCompleted == true ? completeButton = "Uncomplete" : completeButton = "Complete"
+  todo.isCompleted === true ? completeButton = "Uncomplete" : completeButton = "Complete"
   return (
     <div
       className="todo"
@@ -43,8 +43,15 @@ function TodoForm({ addTodo }) {
 
 function App() {
   const [todos, setTodos] = React.useState([
-    { text: "Example point",
+    { text: "Test todo",
       isCompleted: false
+    },
+    { text: "Dogs dogs dogs",
+    isCompleted: false
+    },
+    { 
+    text: "Another example",
+    isCompleted: false
     }
   ]);
 
