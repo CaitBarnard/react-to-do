@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
+
+  var completeButton = "Complete"
+  todo.isCompleted == true ? completeButton = "Uncomplete" : completeButton = "Complete"
   return (
     <div
       className="todo"
@@ -9,7 +12,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
     >
       {todo.text}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => completeTodo(index)}>{completeButton}</button>
         <button onClick={() => removeTodo(index)}>x</button>
       </div>
     </div>
@@ -40,13 +43,7 @@ function TodoForm({ addTodo }) {
 
 function App() {
   const [todos, setTodos] = React.useState([
-    { text: "Point 1",
-      isCompleted: false
-    },
-    { text: "Point 2",
-      isCompleted: false,
-    },
-    { text: "Point 3",
+    { text: "Example point",
       isCompleted: false
     }
   ]);
@@ -58,7 +55,7 @@ function App() {
 
   const completeTodo = index => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
+    newTodos[index].isCompleted ? newTodos[index].isCompleted = false : newTodos[index].isCompleted = true
     setTodos(newTodos);
   }
 
