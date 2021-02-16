@@ -1,10 +1,9 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
-
-  var completeButton = "Complete"
-  todo.isCompleted === true ? completeButton = "Uncomplete" : completeButton = "Complete"
+  var completeButton = "Complete";
+  todo.isCompleted === true ? (completeButton = "Uncomplete") : (completeButton = "Complete");
   return (
     <div
       className="todo"
@@ -22,7 +21,7 @@ function Todo({ todo, index, completeTodo, removeTodo }) {
 function TodoForm({ addTodo }) {
   const [value, setValue] = React.useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
     addTodo(value);
@@ -35,42 +34,34 @@ function TodoForm({ addTodo }) {
         type="text"
         className="input"
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={(e) => setValue(e.target.value)}
       />
     </form>
   );
 }
 
 function App() {
-  const [todos, setTodos] = React.useState([
-    { text: "Test todo",
-      isCompleted: false
-    },
-    { text: "Dogs dogs dogs",
-    isCompleted: false
-    },
-    { 
-    text: "Another example",
-    isCompleted: false
-    }
-  ]);
+  const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem("todoData")));
 
-  const addTodo = text => {
+  const addTodo = (text) => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
+    localStorage.setItem("todoData", JSON.stringify(newTodos));
   };
 
-  const completeTodo = index => {
+  const completeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted ? newTodos[index].isCompleted = false : newTodos[index].isCompleted = true
+    newTodos[index].isCompleted ? (newTodos[index].isCompleted = false) : (newTodos[index].isCompleted = true);
     setTodos(newTodos);
-  }
+    localStorage.setItem("todoData", JSON.stringify(newTodos));
+  };
 
-  const removeTodo = index => {
+  const removeTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
-  }
+    localStorage.setItem("todoData", JSON.stringify(newTodos));
+  };
 
   return (
     <div className="app">
