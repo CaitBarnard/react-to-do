@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Editable from "./Editable";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   var completeButton = "Complete";
@@ -42,6 +43,7 @@ function TodoForm({ addTodo }) {
 
 function App() {
   const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem("todoData")));
+  const [title, setTitle] = React.useState("");
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
@@ -66,6 +68,19 @@ function App() {
   return (
     <div className="app">
       <div className="todo-list">
+      <Editable
+      text={title}
+      placeholder="Add a title"
+      type="input"
+    >
+      <input
+        type="text"
+        name="title"
+        placeholder="Add a title"
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+      />
+    </Editable>
         {todos.map((todo, index) => (
           <Todo
             key={index}
