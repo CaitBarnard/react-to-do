@@ -1,0 +1,22 @@
+.image {
+  margin: auto;
+  display: block;
+  border-radius: 20%;
+}
+
+.frame {
+  margin: auto;
+  margin-top: 10px;
+  width: min-content;
+  background: var(--accent);
+  border-radius: 20%;
+  padding: 5px;
+}
+
+.caption {
+  text-align: center;
+  margin: auto;
+  margin: 0px 2px 0px 2px;
+  display: block;
+  padding: 5px;
+}

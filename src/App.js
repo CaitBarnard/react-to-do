@@ -1,9 +1,12 @@
 import React from "react";
+import Image from "./components/Image/Image";
 import "./App.css";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   var completeButton = "Complete";
-  todo.isCompleted === true ? (completeButton = "Uncomplete") : (completeButton = "Complete");
+  todo.isCompleted === true
+    ? (completeButton = "Uncomplete")
+    : (completeButton = "Complete");
   return (
     <div
       className="todo"
@@ -41,7 +44,9 @@ function TodoForm({ addTodo }) {
 }
 
 function App() {
-  const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem("todoData")));
+  const [todos, setTodos] = React.useState(
+    JSON.parse(localStorage.getItem("todoData"))
+  );
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text }];
@@ -51,7 +56,9 @@ function App() {
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted ? (newTodos[index].isCompleted = false) : (newTodos[index].isCompleted = true);
+    newTodos[index].isCompleted
+      ? (newTodos[index].isCompleted = false)
+      : (newTodos[index].isCompleted = true);
     setTodos(newTodos);
     localStorage.setItem("todoData", JSON.stringify(newTodos));
   };
@@ -77,6 +84,9 @@ function App() {
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
+      <Image src="https://cdn.mos.cms.futurecdn.net/2Gwau7TtiHM5PdsjFeaxnm-320-80.jpg" alt="Red Panda">
+        <div className="">This uses props.children and takes no state</div>
+      </Image>
     </div>
   );
 }
