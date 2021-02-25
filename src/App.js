@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "./components/Image/Image";
-import Captioned from "./components/Captioned/Captioned";
 import "./App.css";
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
@@ -85,10 +84,9 @@ function App() {
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
-      <Image />
-      <Captioned src="https://cdn.mos.cms.futurecdn.net/2Gwau7TtiHM5PdsjFeaxnm-320-80.jpg">
-        <div className="">This uses props.children</div>
-      </Captioned>
+      <Image src="https://cdn.mos.cms.futurecdn.net/2Gwau7TtiHM5PdsjFeaxnm-320-80.jpg" alt="Red Panda">
+        <div className="">This uses props.children and takes no state</div>
+      </Image>
     </div>
   );
 }
